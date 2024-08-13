@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Descrição da Página-->
+    <meta name="description" content="Segundo trabalho semanal da materia de Programação para internet">
+    <title>Clínica ABC Health</title>
+</head>
+
+<body>
+    <!--Cabeçalho-->
+    <header>
+        <h1>Cínica ABC Health</h1>
+    </header>
+
+    <!--Nav (menu de navegação)-->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+    </nav>
+
+    <!--Conteúdo Principal-->
+    <main>
+        <h2>Cadastro</h2>
+        <div>
+            <form action="Cadastro.php" method="post">
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+
+                    <lable for="nome">Nome:</lable>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <lable for="email">E-mail:</lable>
+                    <input type="text" id="email" name="email" required>
+
+                    <lable for="cpg">CPF:</lable>
+                    <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+
+                    <lable for="idade">Idade:</lable>
+                    <input type="number" id="idade" name="idade" required>
+
+                    <lable for="telefone">Telefone:</lable>
+                    <input type="tel" id="telefone" name="telefone" required>
+
+                    <lable for="nascimento">Data de Nascimento:</lable>
+                    <input type="date" id="nascimento" name="nascimento">
+                    <br>
+
+                    <label for="sexo">Sexo:</label>
+                    <input type="radio" id="masculino" name="sexo" value="masculino">
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" id="feminino" name="sexo" value="feminino">
+                    <label for="feminino">Feminino</label>
+                    <br>
+
+                    <label>Estado Civil:</label>
+                    <input type="radio" id="solteiro" name="estadocivil" value="solteiro">
+                    <label for="solteiro">Solteiro</label>
+                    <input type="radio" id="casado" name="estadocivil" value="casado">
+                    <label for="casado">Casado</label>
+                    <input type="radio" id="divorciado" name="estadocivil" value="divorciado">
+                    <label for="divorciado">Divorciado</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Endereço</legend>
+
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" required>
+                    <br>
+
+                    <label for="logradouro">Tipo de logradouro</label>
+                    <select id="logradouro" name="logradouro" required>
+                        <option value="rua">Rua</option>
+                        <option value="avenida">Avenida</option>
+                        <option value="praca">Praça</option>
+                    </select>
+                    <br>
+
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" name="bairro" required>
+                    <br>
+
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                    <br>
+
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado" required>
+                    <br>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Informações Adicionais</legend>
+
+                    <label for="interesses">Interesses:</label>
+                    <div>
+                        <input type="checkbox" id="filmes" name="filmes">
+                        <label for="filmes">Filmes</label>
+
+                        <input type="checkbox" id="informatica" name="informatica">
+                        <label for="informatica">Informática</label>
+
+                        <input type="checkbox" id="games" name="games">
+                        <label for="games">Games</label>
+
+                        <input type="checkbox" id="livros" name="livros">
+                        <label for="livros">Livros</label>
+
+                        <input type="checkbox" id="roupas" name="roupas">
+                        <label for="roupas">Roupas</label>
+                    </div>
+
+                    <label for="infos">Informações Complementares:</label>
+                    <br>
+                    <textarea name="" rows="" cols="">
+                        Texto
+                    </textarea>
+                    <br>
+                    <label for="anex_imagem">Anexar Imagem:</label>
+                    <input type="file" id="anex_imagem" name="anex_imagem" accept="image/*">
+
+
+                </fieldset>
+
+            </form>
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>
