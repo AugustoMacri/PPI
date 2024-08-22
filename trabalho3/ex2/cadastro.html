@@ -6,12 +6,14 @@
     <!--Descrição da Página-->
     <meta name="description" content="Segundo trabalho semanal da materia de Programação para internet">
     <title>Clínica ABC Health</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <!--Cabeçalho-->
     <header>
-        <h1>Cínica ABC Health</h1>
+        <h1 id="titulos">Cínica ABC Health</h1>
     </header>
 
     <!--Nav (menu de navegação)-->
@@ -38,23 +40,27 @@
                 <div>
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" autofocus minlength="2" maxlength="50" required>
+                    <span></span>
                 </div>
 
                 <div>
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    <span></span>
 
                 </div>
 
                 <div>
                     <label for="cpf">CPF:</label>
                     <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                    <span></span>
 
                 </div>
 
                 <div>
                     <label for="idade">Idade:</label>
                     <input type="number" id="idade" name="idade" required>
+                    <span></span>
                 </div>
 
                 <div>
