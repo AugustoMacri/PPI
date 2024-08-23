@@ -10,15 +10,17 @@ body {
     padding: 2% 0;
 }
 
-main{
+main {
     background-color: white;
+    padding: 3%;
 }
 
-h1, h2{
+h1,
+h2 {
     color: rgb(145, 76, 8);
 }
 
-section{
+section {
     margin-top: 0px;
     padding-bottom: 5px;
     border-top: solid 1px gray;

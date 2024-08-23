@@ -1,94 +1,103 @@
 body {
-    background-color: #ddd;
+    background-color: rgb(231, 204, 162);
 
     font-family: "Helvetica Neue";
     color: #444;
     line-height: 1.5;
 
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     padding: 2% 0;
+
 }
 
-nav{
-    background-color: whitesmoke;
+nav {
+    background-color: blanchedalmond;
+    border: 1px solid #ccc;
 }
 
-main{
-    background-color: white;
+nav li {
+    display: inline;
+    margin: 2%;
 }
 
-h1, h2{
-    color: rgb(145, 76, 8);
+main {
+    background-color: blanchedalmond;
+    padding: 3%;
 }
 
-section{
+section {
     margin-top: 0px;
     padding-bottom: 5px;
     border-top: solid 1px gray;
 }
 
-input:invalid  + span::after {
+input:invalid+span::after {
     content: "✖";
     color: red;
 }
 
-input:valid + span::after {
+input:valid+span::after {
     content: "✓";
     color: green;
 }
 
 /*Seletor de id - alinhando os titulos*/
-#titulos{
+#bemvindo {
     text-align: center;
-    background-color: white;
+    background-color: blanchedalmond;
 }
 
 /*Seletor de classe - destacando paragrafos (da index)*/
-.destacado{
+.destacado {
     color: red;
     text-transform: uppercase;
 }
 
 /*Seletor de descendente - destacando o rodape das paginas*/
-footer p{
-    background-color: rgb(0, 225, 255);
+footer p {
+    background-color: blanchedalmond;
+    text-align: center;
 }
 
-/*Seletor irmao adjacente - paragrafos que aparecem depois de subtitulos h2*/
+/*Seletor irmao adjacente - paragrafos que aparecem depois de subtitulos h2
 h2 + p{
-    background-color: cadetblue;
+    background-color: blanchedalmond;
 }
+*/
 
 /*Estilos dos links utilizando pseudo classes - Alterar os que já foram visitados*/
 a:link,
-a:visited{
-    background-color: #ddd;
+a:visited {
+    background-color: blanchedalmond;
+    text-decoration: none;
 }
+
 a:hover,
-a:active{
-    background-color: chartreuse;
+a:active {
+    background-color: yellow;
 }
 
 /*Pseudo classe has()*/
-form:has( fieldset){
+form:has(fieldset) {
     background-color: blanchedalmond;
 }
 
-/*Pseudo classe com id()*/
-:is(body) :is(h1, h2){
+/*Pseudo classe com is()*/
+:is(body) :is(h2) {
     background-color: blanchedalmond;
     text-transform: uppercase;
 }
 
 /*Pseudo classe first-child*/
-li:first-child{
+header:first-child {
     background-color: blanchedalmond;
     text-align: center;
+    text-transform: uppercase;
 }
 
 /*Pseudo classe first of type - Vai afetar apenas o primeiro paragrafo*/
-p:first-of-type{
-    text-transform: uppercase;
-    color: black;
+table:first-of-type {
+    background-color: blanchedalmond;
+    padding: 5%;
 }
