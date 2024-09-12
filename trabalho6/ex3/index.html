@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>Calculadora de peso ideal</header>
+
+    <!--Formulário para altura-->
+    <div>
+        <label for="altura">Altura em cm</label>
+        <input type="number" id="altura" name="altura">
+    </div>
+
+    <div>
+        <label>Sexo:</label>
+        <input type="radio" id="masculino" name="sexo" value="masculino">
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="feminino" name="sexo" value="feminino">
+        <label for="feminino">feminino</label>
+    </div>
+
+    <button type="button">Preencha os valores e clique aqui</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        const botao = document.querySelector("button");
+        botao.onclick = function () {
+            const campoAltura = document.getElementById("altura").value;
+            const radioSexo = document.getElementsByName("sexo");
+
+            let sexoUser = null;
+            let pesoFinal = null;
+
+            for (const radio of radioSexo) {
+                if (radio.checked) {
+                    sexoUser = radio.value;
+                    break;
+                }
+            }
+
+            const altura = parseFloat(campoAltura);
+
+            const pesoIdeal = document.getElementById("resultado");
+
+            //Calculando o peso
+            if (sexoUser == "masculino") {
+                pesoFinal = 52 + (0.75 * (altura - 152.4));
+            } else {
+                pesoFinal = 52 + (0.67 * (altura - 152.4));
+            }
+
+            pesoIdeal.textContent = `${pesoFinal.toFixed(2)}`;
+        }
+    </script>
+
+
+
+</body>
+
+</html>
