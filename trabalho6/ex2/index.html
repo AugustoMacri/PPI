@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Formulário normal-->
+    <input type="text" name="nome">
+    <button type="button">Digite seu nome e clique aqui</button> 
+    <p></p>
+
+    <script>
+        const botao = document.querySelector("button"); //Esse metodo retorna o primeiro elemento que corresponde ao seletor passado como parametro
+        botao.onclick = function(){ //Definindo o comportamento quando clicar no botao
+            const campoNome = document.querySelector("input"); //Mesma coisa que a ultima chamada
+            const parSaida = document.querySelector("p"); //Mesma coisa, selecionando o primeiro paragrafo <p> do documento (aqui vai ser exibida a mensagem de saida)
+            parSaida.textContent = 'Obrigado, ' + campoNome.value;
+        };
+    </script>
+
+    <img src="images/imagem_ex2.png" alt="print da tela em modo debug">
+
+</body>
+</html>

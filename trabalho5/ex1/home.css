@@ -1,0 +1,70 @@
+body {
+    background-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
+    line-height: 1.5;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    background-color: #ddd;
+    color: #555;
+    padding-top: 5px;
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #555;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+/*centralizar*/
+nav ul {
+    padding: 0;
+    margin: 10px;
+}
+
+ul li {
+    display: inline;
+    margin: 15px;
+}
+
+li a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+
+main {
+    align-content: center;
+    background-color: white;
+    margin: 0 auto;
+    padding: 3%;
+    width: 70%;
+    box-sizing: border-box;
+
+}
+
+/*Adicionando a media query para assim se estiver em celular pegar a largura total*/
+@media (max-width: 600px) {
+    main {
+        width: 100%;
+    }
+}
+
+
+footer p {
+    color: black;
+    text-align: center;
+
+}
