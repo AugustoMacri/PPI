@@ -1,0 +1,126 @@
+/*Referente ao css da home*/
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    background-color: #ddd;
+    color: #555;
+    padding-top: 5px;
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #555;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+nav button {
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    background-color: inherit;
+    height: 30px;
+    margin: 0;
+}
+
+nav button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+button.buttonActive {
+    font-weight: bold;
+    color: white;
+}
+
+.tabs section {
+    display: none;
+}
+
+section.tabActive {
+    display: block;
+}
+
+/*centralizar*/
+nav ul {
+    padding: 0;
+    margin: 10px;
+}
+
+ul li {
+    display: inline;
+    margin: 15px;
+}
+
+li a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+body {
+    background-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555;
+    line-height: 1.5;
+    margin: 0 auto;
+}
+
+main {
+    align-content: center;
+    background-color: white;
+    margin: 0 auto;
+    padding: 3%;
+    width: 70%;
+}
+
+
+footer p {
+    color: black;
+    text-align: center;
+
+}
+
+
+/*Referente ao css da galeria*/
+.galeria body {
+    background-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.galeria main {
+    background-color: white;
+    border-radius: 10px;
+    /*Arredondar a borda */
+    color: #555;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/*Regras de imagens nas tabelas */
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    border-radius: 10px;
+    width: 200px;
+    height: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra para as imagens */
+    margin: 10px;
+}
+
+
+/*Regras do login*/
+.login body {
+    background-color: black;
+}

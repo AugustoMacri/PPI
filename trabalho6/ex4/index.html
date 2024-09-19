@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Explicação saída produzida pelo código</h1>
+
+    <p>
+        Inicialmente, na primeira linha do script, o código seleciona o objeto com id "#output", que esse irá armazenar
+        os nós da árvore DOM,. Após entrar no loop for, irá realizar a concatenaçao dos filhos do elemento body.
+    </p>
+
+    <p>
+        [object Text] - Se refere a o texto entre os elementos, nesse caso uma quebra de linha.
+    </p>
+
+    <p>
+        [objetct HTMLHeadingElement] - Seguindo, será realizdo a concatenação do h1 no textContent do output.
+    </p>
+
+    <p>
+        [object Text] - Novamente e refere a o texto entre os elementos, nesse caso uma quebra de linha.
+    </p>
+
+    <p>
+        [HTMLInputElement] - Seguinto a ordem da árvore, irá realizar a concatenação referente
+        ao objeto input, mostrado por [HTMLInputElement].
+    </p>
+
+    <p>
+        [object Text] - Novamente e refere a o texto entre os elementos, nesse caso uma quebra de linha.
+    </p>
+
+    <p>
+        [object Comment] - Agora, seguindo a árvore, será concatenado a linha de comentário do código.
+    </p>
+
+    <p>
+        [object Text] - Novamente e refere a o texto entre os elementos, nesse caso uma quebra de linha.
+    </p>
+
+    <p>
+        [object HTMLPreElement] - Seguindo, será concatenando um objeto do tipo pre element.
+    </p>
+
+    <p>
+        [object Text] - Novamente e refere a o texto entre os elementos, nesse caso uma quebra de linha.
+    </p>
+
+    <p>
+        [object HTMLElement] - Por fim, agora irá concatenar a textContent do output o script
+        javascript, que também.
+    </p>
+
+    <p>
+        Saindo do loop, agora irá concatenar ao textContent do output o resultado devolvido pelas seguintes comparações:
+        input instanceof HTMLInputElement, que analisando a árvore DOM do slide 34, podemos contirmar que
+        HTMLInputElement é instância de HTMLElement, desse modo, concatenando o valor True.
+        O mesmo é repetido na input instanceof HTMLElement, que concatenárá true porque input também é instância de
+        HTMLElement.
+        Um comportamento igual ocorre na próxima linha, que também concatena o valor True, por conta que input é
+        instância de Element.
+        O mesmo é observado na linha de baixo, onde concatena true por conta de input ser instancia de Node, como
+        observado novamente na arvore DOM slide.
+        Finalizando essa sequência, o último true é concatenado por conta de input ser instancia também de EventTarget.
+    </p>
+
+    <p>
+        Agora, finalizando, a concatenação observada na ultima linha é decorrida do acesso de um protótipo de todo html
+        e o concatena no textContent de output.
+    </p>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+/*Primeira regra para o fundo da página*/
+body {
+    background-color: #ddd;
+}
+
+/*Segunda regra para a main, onde estará localizado o formulário*/
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: #555;
+    max-width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    position: absolute;
+    /*Posiciona */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*Centralização*/
+    box-shadow: 0 0 10px #555;
+    /*Box shadow em volta da main*/
+
+}
+
+li{
+    background-color: rgb(167, 167, 243);
+    color: black;
+    position: relative;
+    padding: 5px;
+    margin: 0;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 15px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+}
+
+.material-icons {
+    vertical-align: middle;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+
+    <main>
+        <label for="interesses">Interesses:</label>
+        <input type="text">
+
+        <ol>
+
+        </ol>
+
+        <script>
+            const campoInteresse = document.querySelector("input"); //Seleciona todos os elementos do tipo input e os armazena no campoInteresse
+
+            campoInteresse.addEventListener("keyup", e => {//Adiciona um listener para o evento keyup
+                if (e.key === "Enter") { //Se o usuário clicar no enter, entrara na condição
+
+                    //nessa condição irá
+
+                    const novoLi = document.createElement("li"); //criar um novo elemento do tipo li em novoLi
+                    const novoSpan = document.createElement("span"); //criar um novo elemento span em novoSpan
+                    const novoBotao = document.createElement("button"); //criar um novo elemento botao em novoBotao
+
+                    novoLi.textContent = campoInteresse.value;  //irá adicionar no conteúdo em texto do novoLi o que foi escrito no campoInteresse (seu valor)
+                    novoBotao.textContent = 'X'; //O conteúdo do botão será representado como x
+
+                    novoLi.appendChild(novoSpan); //Irá fazer acrescentar o span no novoLi
+                    novoLi.appendChild(novoBotao); //Irá fazer acrescentar o novoBotao no novoLi
+
+                    const listaInteresses = document.querySelector("ol"); //Adiciona todos os itens de ol em lista de interesse
+                    listaInteresses.appendChild(novoLi); //Adiciona o novoLi criado na lista de interesse (lista ol)
+
+                    novoBotao.onclick = function () { //Condição para caso o botão (x) seja clicado
+                        listaInteresses.removeChild(novoLi); //Remoção do filho listado 
+                    }
+                    campoInteresse.value = ''; //Limpa o campo de interesse
+                }
+            });
+
+        </script>
+    </main>
+
+</body>
+
+</html>

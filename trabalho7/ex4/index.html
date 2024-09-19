@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="formulario.css">
+</head>
+
+<body>
+    <main>
+
+        <!--Criação do formulario e seus campos-->
+        <h2>Cadastro de Usuário</h2>
+        <form name="cadastro" action="login.php" method="post">
+
+            <div>
+                <label for="usuario">Usuário:</label>
+                <input type="text" id="usuario" name="usuario">
+                <span></span>
+            </div>
+
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha">
+                <span></span>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <span></span>
+            </div>
+
+            <button>Cadastrar</button>
+        </form>
+
+        <!--Script-->
+        <script>
+            document.forms.cadastro.onsubmit = validaForm; //Quando o formulario for submetido, irá chamar a função para fazer a verificação
+
+            //declaração da função que recebe como parâmetro o formulario
+            function validaForm(e){
+                let form = e.target;
+                let formValido = true;
+
+                const spanUsuario = form.usuario.nextElementSibling; //Criando uma constante span no nextElementSibling (campo span) da caixa te texto usuario
+                const spanSenha = form.senha.nextElementSibling; //Criando uma constante span no nextElementSibling (campo span) da caixa te senha
+                const spanEmail = form.email.nextElementSibling; //Criando uma constante span no nextElementSibling (campo span) da caixa te email
+
+                //Setanto o span padrão como vazio
+                spanUsuario.textContent = ""; 
+                spanSenha.textContent = "";
+                spanEmail.textContent = "";
+
+                //Criando condições caso tenha tentado envio do formulário com campos vazios
+                if(form.usuario.value === ""){
+                    spanUsuario.textContent = 'Usuário deve ser preenchido' //exibe mensagem no span
+                    formValido = false; //Formulario é colocado em condição de falso
+                }
+                if(form.senha.value === ""){
+                    spanSenha.textContent = 'A senha deve ser preenchida' //exibe mensagem no span
+                    formValido = false; //Formulario é colocado em condição de falso
+                }
+                if(form.email.value === ""){
+                    spanEmail.textContent = 'O email deve ser preenchido' //exibe mensagem no span
+                    formValido = false; //Formulario é colocado em condição de falso
+                }
+
+                if (!formValido){ //Condição para caso o formulário não esteja em true
+                    e.preventDefault(); //Não permite o envio do formulario
+                }
+            }
+        </script>
+
+    </main>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

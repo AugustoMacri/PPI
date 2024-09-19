@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Descrição da Página-->
+    <meta name="description" content="Segundo trabalho semanal da materia de Programação para internet">
+    <title>Clínica ABC Health</title>
+
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <!--Cabeçalho-->
+    <header>
+        <h1>Clínica ABC Health</h1>
+    </header>
+
+    <!--Nav (menu de navegação)-->
+    <nav>
+        <section>
+            <ul>
+                <li><button>Home</button></li>
+                <li><button>Galeria</button></li>
+                <li><button>Login</button></li>
+            </ul>
+        </section>
+    </nav>
+
+    <!--Conteúdo Principal-->
+    <main>
+
+        <div class="tabs">
+            <section class="home">
+                <h2>Bem vindo à Clínica ABC Health</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit
+                    anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit
+                    anim id est laborum.</p>
+
+                <h2>Nossa Missão</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit
+                    anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit
+                    anim id est laborum.</p>
+
+                <h2>Nossos Valores</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit
+                    anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                    mollit
+                    anim id est laborum.</p>
+            </section>
+            <section class="galeria">
+                <h2>Nossa Estrutura</h2>
+
+                <table>
+                    <tr>
+                        <td><img src="images/image1.jpeg" alt="Descrição imagem 1"></td>
+                        <td><img src="images/image2.jpeg" alt="Descrição imagem 2"></td>
+                        <td><img src="images/image3.jpeg" alt="Descrição imagem 3"></td>
+                        <td><img src="images/image4.jpeg" alt="Descrição imagem 4"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/image5.jpeg" alt="Descrição imagem 5"></td>
+                        <td><img src="images/image6.jpeg" alt="Descrição imagem 6"></td>
+                        <td><img src="images/image7.jpeg" alt="Descrição imagem 7"></td>
+                        <td><img src="images/image8.jpeg" alt="Descrição imagem 8"></td>
+                    </tr>
+                </table>
+            </section>
+            <section class="login">
+                <form action="cadastra.pdp" method="post"> <!--QUAL COLOCAR-->
+                    <div>
+                        <label for="usuario">Usuário:</label>
+                        <input type="email" id="usuario" name="usuario" required>
+                    </div>
+
+                    <div>
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+
+                    <button type="submit">
+                        <span class="material-icons">login</span> Entrar
+                    </button>
+
+                </form>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        //Primeira parte, está sendo selecionado todos os botoes que fazem parte da barra de navegação
+        window.onload = function(){
+            const buttons = document.querySelectorAll("nav button");
+            for(let button of buttons){
+                button.addEventListener("click", changeTab);
+            }
+            openTab(0); //Abre a primeira aba quando carrega
+        }
+
+        //Encontra a posição do item de lista dentro da lista
+        function changeTab(e){
+            const botaoAcionado = e.target;
+            const liDoBotao = botaoAcionado.parentNode;
+            const nodes = Array.from(liDoBotao.parentNode.children);
+            const index = nodes.indexOf(liDoBotao);
+            openTab(index);
+        }
+
+        //Torna visivel o section referente ao indice
+        function openTab(i){
+
+            //Primeira parte faz com que a tab que está exibida atualmente se torne oculta
+            const tabActive = document.querySelector(".tabActive")
+            if(tabActive !== null){
+                tabActive.className = "";
+            }
+            //Botao que está ativo irá deixar d eficar ativo
+            const buttonActive = document.querySelector(".buttonActive");
+            if(buttonActive !== null){
+                buttonActive.className = "";
+            }
+
+            //Aticação da nova aba
+            document.querySelectorAll(".tabs section")[i].className = "tabActive";
+            document.querySelectorAll("nav section")[i].className = "buttonActive";
+        }
+
+    </script>
+
+    <!--Rodapé-->
+    <footer>
+        <p><i>Av. João Naves De Ávila, Santa Mônica, Uberlândia</i></p>
+    </footer>
+
+</body>
+
+</html>

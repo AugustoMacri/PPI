@@ -31,6 +31,7 @@
     <script>
         const botao = document.querySelector("button");
         botao.onclick = function () {
+
             const campoAltura = document.getElementById("altura").value;
             const radioSexo = document.getElementsByName("sexo");
 
@@ -44,8 +45,7 @@
                 }
             }
 
-            const altura = parseFloat(campoAltura);
-
+            let altura = parseInt(campoAltura);
             const pesoIdeal = document.getElementById("resultado");
 
             //Calculando o peso
