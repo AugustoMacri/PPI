@@ -8,6 +8,10 @@
     <title>Clínica ABC Health</title>
 
     <link rel="stylesheet" href="home.css">
+
+
+    <!--Importando icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -18,20 +22,19 @@
 
     <!--Nav (menu de navegação)-->
     <nav>
-        <section>
-            <ul>
-                <li><button>Home</button></li>
-                <li><button>Galeria</button></li>
-                <li><button>Login</button></li>
-            </ul>
-        </section>
+
+        <ul>
+            <li><button>Home</button></li>
+            <li><button>Galeria</button></li>
+            <li><button>Login</button></li>
+        </ul>
     </nav>
 
     <!--Conteúdo Principal-->
     <main>
 
         <div class="tabs">
-            <section class="home">
+            <section>
                 <h2>Bem vindo à Clínica ABC Health</h2>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
@@ -105,25 +108,23 @@
                     mollit
                     anim id est laborum.</p>
             </section>
-            <section class="galeria">
+            <section>
                 <h2>Nossa Estrutura</h2>
 
-                <table>
-                    <tr>
-                        <td><img src="images/image1.jpeg" alt="Descrição imagem 1"></td>
-                        <td><img src="images/image2.jpeg" alt="Descrição imagem 2"></td>
-                        <td><img src="images/image3.jpeg" alt="Descrição imagem 3"></td>
-                        <td><img src="images/image4.jpeg" alt="Descrição imagem 4"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/image5.jpeg" alt="Descrição imagem 5"></td>
-                        <td><img src="images/image6.jpeg" alt="Descrição imagem 6"></td>
-                        <td><img src="images/image7.jpeg" alt="Descrição imagem 7"></td>
-                        <td><img src="images/image8.jpeg" alt="Descrição imagem 8"></td>
-                    </tr>
-                </table>
+                <div class="container">
+                    <img src="images/image1.jpeg" alt="Descrição imagem 1">
+                    <img src="images/image2.jpeg" alt="Descrição imagem 2">
+                    <img src="images/image3.jpeg" alt="Descrição imagem 3">
+                    <img src="images/image4.jpeg" alt="Descrição imagem 4">
+                    <img src="images/image5.jpeg" alt="Descrição imagem 5">
+                    <img src="images/image6.jpeg" alt="Descrição imagem 6">
+                    <img src="images/image7.jpeg" alt="Descrição imagem 7">
+                    <img src="images/image8.jpeg" alt="Descrição imagem 8">
+                </div>
+
             </section>
-            <section class="login">
+            <section>
+                <h2>Cadastro</h2>
                 <form action="cadastra.pdp" method="post"> <!--QUAL COLOCAR-->
                     <div>
                         <label for="usuario">Usuário:</label>
@@ -135,7 +136,7 @@
                         <input type="password" id="senha" name="senha" required>
                     </div>
 
-                    <button type="submit">
+                    <button type="submit" class="botao-login">
                         <span class="material-icons">login</span> Entrar
                     </button>
 
@@ -149,16 +150,16 @@
     <script>
 
         //Primeira parte, está sendo selecionado todos os botoes que fazem parte da barra de navegação
-        window.onload = function(){
+        window.onload = function () {
             const buttons = document.querySelectorAll("nav button");
-            for(let button of buttons){
+            for (let button of buttons) {
                 button.addEventListener("click", changeTab);
             }
             openTab(0); //Abre a primeira aba quando carrega
         }
 
         //Encontra a posição do item de lista dentro da lista
-        function changeTab(e){
+        function changeTab(e) {
             const botaoAcionado = e.target;
             const liDoBotao = botaoAcionado.parentNode;
             const nodes = Array.from(liDoBotao.parentNode.children);
@@ -167,16 +168,16 @@
         }
 
         //Torna visivel o section referente ao indice
-        function openTab(i){
+        function openTab(i) {
 
             //Primeira parte faz com que a tab que está exibida atualmente se torne oculta
             const tabActive = document.querySelector(".tabActive")
-            if(tabActive !== null){
+            if (tabActive !== null) {
                 tabActive.className = "";
             }
             //Botao que está ativo irá deixar d eficar ativo
             const buttonActive = document.querySelector(".buttonActive");
-            if(buttonActive !== null){
+            if (buttonActive !== null) {
                 buttonActive.className = "";
             }
 
