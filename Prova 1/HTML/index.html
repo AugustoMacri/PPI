@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8"> <!--Inserção de metadados-->
+        <title>HTML</title>
+    </head>
+
+    <body>
+        <h1>Matérias abordadas no primeiros slide</h1>
+
+        <p>
+            Faculdade de computação <abbr title="Universidade Federal de uberlandia">UFU</abbr>
+        </p>
+
+        <p>
+            O seguinte é uma <cite>Citação</cite>
+        </p>
+
+        <p>
+            Que tal em  <strong>negrito</strong> ou <i>itálico</i>
+        </p>
+
+        <address>
+            Rua joão naves de Avila
+        </address>
+
+        <h2 id="listas">Listas sem ordenaçao ul</h2>
+        <ul>
+            <li>Primeiro</li>
+            <li>Segundo</li>
+            <li>Terceiro</li>
+        </ul>
+
+        <h2>Lista com ordenação</h2>
+        <ol>
+            <li>Primeiro</li>
+            <li>Segundo</li>
+            <li>Terceiro</li>
+        </ol>
+
+        <h2>Uma imagem</h2>
+        <figure>
+            <img src="image.png" alt="foto da ufu" title="Foto">
+            <figcaption>UMA LEGENDA</figcaption>
+        </figure>
+
+        <h2>Links</h2>
+        <a href="index.html">Um link para cá memo</a>
+        <p>Pode ser <a href="#listas">assim</a></p>
+
+        <h2>TABELAS</h2>
+        <table>
+            <tr>
+                <td>aluno</td>
+                <td>nota</td>
+            </tr>
+            <tr>
+                <td>fulano</td>
+                <td>90</td>
+            </tr>
+        </table>
+
+        <h1>FORMULÁRIOS</h1>
+
+        <form action="busca.php" method="get">
+            <div>
+                <label for="produto">Produto:</label>
+                <input type="text" id="produto" name="produto">
+            </div>
+
+            <div>
+                <label for="email">email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <div>
+                <label for="tel">tel:</label>
+                <input type="tel" id="tel" name="tel">
+            </div>
+
+            <div>
+                <label for="descricao">Descrição:</label>
+                <input type="text" name="descricao" id="descricao">
+            </div>
+
+            <div>
+                <label for="interesses">Interesses:</label>
+                <input type="text" name="interesses" id="interesses">
+            </div>
+
+            <div>
+                <label for="senha">senha:</label>
+                <input type="password" name="senha" id="senha">
+            </div>
+
+            <div>
+                <label for="text">cpf:</label>
+                <input type="text" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" name="senha" id="senha">
+            </div>
+
+            <h2>Radios precisam possuir o mesmo valor no campo name</h2>
+            <fieldset>
+                <legend>estadoCivil</legend>
+
+                <div>
+                    <input type="radio" id="casado" name="estadoCivil" value="casado">
+                    <label for="casado">casado</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="solteiro" name="estadoCivil" value="solteiro">
+                    <label for="solteiro">Solteiro</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="divorciado" name="estadoCivil" value="divorciado">
+                    <label for="divorciado">divorciado</label>
+                </div>
+            </fieldset>
+
+            <h2>CHECKBOX</h2>
+            <fieldset>
+                <legend>interesses</legend>
+
+                <div>
+                    <input type="checkbox" id="natação" name="interesses[]" value="natação">
+                    <label for="natação">Natação</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="futebol" name="interesses[]" value="futebol">
+                    <label for="futebol">futebol</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="ciclismo" name="interesses[]" value="ciclismo">
+                    <label for="ciclismo">ciclismo</label>
+                </div>
+            </fieldset>
+
+            <h2>Select</h2>
+            <label for="estado">Estado:</label>
+            <select name="estado" required>
+                <option value="">Selecione</option>
+                <option value="AM">Amazonas</option>
+                <option value="SP">São Paulo</option>
+            </select>
+
+            <textarea name="" rows="" cols="">
+                texto
+            </textarea>
+
+            <input type="file">
+
+            <button>Buscar</button>
+        </form>
+
+
+    </body>
+</html>
