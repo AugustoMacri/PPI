@@ -1,0 +1,91 @@
+body{
+    background-color: #ddd;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header{
+    text-align: center;
+    background-color: gray;
+    color: #ddd;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    justify-content: center;    
+    flex-direction: row;
+    background-color: rgb(110, 104, 104);
+
+}
+
+ul{
+    display: flex;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+ul li{
+    list-style-type: none;
+
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    background-color: yellow;
+    color: black;
+}
+
+main{
+    width: 80%;
+    margin: 0 auto;
+    align-content: center;
+}
+
+.container{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.anuncio img{
+    width: 150px;
+    height: auto;
+}
+
+.anuncio{
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    max-width: 350px; /*tamanho máximo que vai alcançar */
+    flex: 1 1 250px; /*1 para crescer, 1 para diminuir e 250 de tam inicial*/
+
+}
+
+.price{
+    color: red;
+}
+
+.destaca{
+    box-shadow: 0 0 20px red;
+}
+
+@media screen and (max-width:800px){
+    
+    main{
+        width: 100%;
+    }
+    
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>cadastro</title>
+</head>
+<body>
+    
+    <header><h1>Cadastro de Cliente</h1></header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="display.html">Display</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="calcularpeso.html">IMC</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <form name="cadastro" action="enviar.php">
+
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="jorge">
+                <span></span>
+            </div>
+
+            <div>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha">
+                <span></span>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <span></span>
+            </div>
+
+            <div>
+                <label for="tel">Tel:</label>
+                <input type="tel" id="tel" name="tel">
+                <span></span>
+            </div>
+                
+            <div>
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}\-\d{2}">
+                <span></span>
+            </div>
+
+            <fieldset>
+                <legend>Escolha o País</legend>
+
+                <div>
+                    <input class="reset" type="radio" id="brasil" name="pais" value="brasil">
+                    <label for="brasil">Brasil</label>
+                </div>
+                
+                <div>
+                    <input class="reset" type="radio" id="argentina" name="pais" value="brasil">
+                    <label for="argentina">argentina</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Selecione interesses</legend>
+
+                <div>
+                    <input class="reset" type="checkbox" id="HTML" name="interesses[]" value="html">
+                    <label for="HTML">HTML</label>
+                </div>
+
+                <div>
+                    <input class="reset" type="checkbox" id="CSS" name="interesses[]" value="css">
+                    <label for="CSS">CSS</label>
+                </div>
+
+                <div>
+                    <input class="reset" type="checkbox" id="JS" name="interesses[]" value="js">
+                    <label for="JS">JS</label>
+    
+                </div>
+            </fieldset>
+
+            <div>
+                <textarea name="" rows="" cols="">
+                    Nos conte sobre voce
+                </textarea>
+            </div>
+
+            <div>
+                <input type="file">
+            </div>
+
+            <button>enviar</button>
+        </form>
+
+        <script>
+            document.forms.cadastro.onsubmit = validaForm;
+
+            function validaForm(e){
+                let form = e.target;
+                let formValido = true;
+
+                const spanNome = form.nome.nextElementSibling;
+                const spanSenha = form.senha.nextElementSibling;
+                const spanEmail = form.email.nextElementSibling;
+
+                spanNome.textContent = "";
+                spanSenha.textContent = "";
+                spanEmail.textContent = "";
+
+                if(form.nome.value === ""){
+                    spanNome.textContent = 'nome deve ser preenchido'
+                    formValido = false;
+                }
+                
+
+
+                if(!formValido){
+                    e.preventDefault();
+                }
+            }
+        </script>
+
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

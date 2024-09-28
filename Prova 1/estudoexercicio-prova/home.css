@@ -1,0 +1,74 @@
+body{
+    background-color: #ddd;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header{
+    background-color: gray;
+    color: #ddd;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    width: 100%;
+    background-color: rgb(110, 104, 104);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+    padding-right: 40px;
+}
+
+a{
+    color: #ddd;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: yellow;
+    color: black;
+}
+
+main{
+    width: 80%;
+    background-color: white;
+    padding: 2%;
+    margin: 0 auto; /* Centraliza o elemento - não esquecer do AUTO. Significa margens automáticas para esquerda e direita para centralizar verticalmente*/
+    align-content: center;
+}
+
+
+main h1{
+    font-weight: bold;
+}
+
+main p{
+    font-size: large;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ddd;
+}
+
+footer{
+    background-color: gray;
+    color: #ddd;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}

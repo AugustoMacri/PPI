@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="display.css">
+    <title>Display</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Notebooks em display</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="display.html">Display</a></li>
+            <li><a href="cadastro.html">cadastro</a></li>
+            <li><a href="calcularpeso.html">IMC</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="container">
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+
+            <div class="anuncio">
+                <div>
+                    <h1>Notebook 14'</h1>
+                    <img src="images/note_foto.png" alt="notebook">
+                </div>
+                <p>Descrição do notebook</p>
+                <h2 class="price">R$2000</h2>
+            </div>
+            
+        </div>
+
+
+    </main>
+
+    <script>
+        const anuncios = document.querySelectorAll(".anuncio");
+
+        for(let anuncio of anuncios){
+            anuncio.onmouseenter = () => anuncio.classList.add("destaca");
+            anuncio.onmouseleave = () => anuncio.classList.remove("destaca");
+        }
+    </script>
+
+</body>
+
+</html>
