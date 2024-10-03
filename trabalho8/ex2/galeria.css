@@ -1,0 +1,97 @@
+body {
+    background-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    background-color: #555;
+    border-radius: 10px;
+    /*Arredondar a borda */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+main {
+    background-color: white;
+    border-radius: 10px;
+    /*Arredondar a borda */ 
+    color: #555;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/*Adicionando a media query para assim se estiver em celular pegar a largura total*/
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+}
+
+/*Adicionando flexbox para o div com as imagens - podemos utilizar o flex wrap para ocupar multiplas linhas*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.container img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra para as imagens */
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    height: 150px;
+    width: auto;
+    object-fit: cover;
+}
+
+/*Regras para o nav */
+nav {
+    background-color: #555;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    /*Arredondar a borda */
+    position: sticky;
+    top: 0;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    padding: 0;
+    margin: 10px;
+    list-style: none;
+}
+
+ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+li a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+/*Regras para o footer*/
+footer {
+    background-color: #555;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    /*Arredondar a borda */
+    padding: 10px;
+    margin-top: 10px;
+}
+
+footer p {
+    margin: 0;
+}

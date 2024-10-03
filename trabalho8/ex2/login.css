@@ -1,0 +1,45 @@
+/*São no máximo quatro regras*/
+
+/*Primeira regra para o fundo da página*/
+body {
+    background-color: #ddd;
+}
+
+/*Segunda regra para a main, onde estará localizado o formulário*/
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: #555;
+    max-width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    position: absolute;
+    /*Posiciona */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*Centralização*/
+    box-shadow: 0 0 10px #555;
+    /*Box shadow em volta da main*/
+
+}
+
+/*Regra para o posicionamento e dimensionamento do botão*/
+input,
+button {
+    width: 100%;
+    padding: 0.4rem;
+    margin: 0.5rem 0;
+    outline: none;
+    border: 0.5px solid gray;
+    box-sizing: border-box;
+}
+
+/*Input para quando está em cada campo do formulário*/
+input:focus {
+    box-shadow: 0 0 10px #555;
+}
+
+.material-icons {
+    vertical-align: middle;
+}
