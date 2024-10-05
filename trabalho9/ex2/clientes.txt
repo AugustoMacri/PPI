@@ -1,0 +1,6 @@
+Fulano;fulano@mail.com;1234
+Augusto Fernandes Macri;00000000000;augusto.macri@hotmail.com;$2y$10$oZrc9FkYoNwGn9cwyHW8XuJ5I1s7/Zf2pXYZReEOJ.PnMA70IS3dW;38408-734;Rua Irmã Dúlce;;Uberlândia
+Nome2;00000000000;augusto.macri@ufu.br;$2y$10$ccCsXfUgtJObjoXC06RC3.1wngU035BRC6IiHS00iQ8kmirOmxzf6;38408-734;rua x;;Uberlândia
+Augusto Fernandes Macri;00000000000;a@mail.com;$2y$10$XTerTdwNKX2ujDKaudq0hu/YvTx5cKhsWeso9YbOf8ds6bBYtnXb6;38408-734;Rua Irmã Dúlce;;Uberlândia
+Augusto Fernandes Macri;00000000000;augusto.ufu@outmail.com;$2y$10$p60c.x3exUaKZjZ2zzQrW.Zce98nBf3lAfio7drPjcnEMij8U3RWy;38408-734;Rua Irmã Dúlce;;Uberlândia;mg
+Augusto Fernandes Macri;00000000000;augusto.macri@hotmail.com;$2y$10$QBbmF2VsT3mby45P9A8fZ.Ikgb/QwoQN2LalekG./XafiS9JZY8nW;38408-734;Rua Irmã Dúlce;Saraiva;Uberlândia;pr
