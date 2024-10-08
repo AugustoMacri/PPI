@@ -1,0 +1,21 @@
+-> Trabalho PPI 9
+
+ex1:
+
+a) Analisando o código web juntamente com o do vscode podemos ver que no código do vs code, só existe os for indicando que o trecho de código irá rodar 5 vezes, diferente do observado no html do navegador, que apresenta o h5 repetido 5 vezes 
+
+b) No cadastrar contato não há novidades no html, mas no contatos.php temos a classe contato que possui atributos como nome, email e telefone, todos definidos com $, um contruor normal e uma função salvaEmArquivo que atribui um arquivo txt para $arq e escreve o nome, email e telefone do cadastrado nesse arquivo.
+
+Também temos a carregaContatosDeArquivo, que enquanto tiver dados no arquivo .txt irá pegar os dados de nome, email e telefone desse txt, instanciar um objeto contato com essas informações e colocar em um array.
+
+Já a CadastraContato.php utiliza o require para incluir a definição da classe Contato de cadastro.php.
+Os dados do formulário enviados por post são capturados ($_POST), com valores padrão vazios se não forem enviados.
+Um novo objeto Contato é criado com os dados recebidos e o SalvaEmArquivo armazena no txt.
+
+c) Listando os contatos normalmente, é possível observar o nome cadastrado normalmente como <script>alert('Ataq. X S S')</script> e os outros espaços vazios. Mas quando vamos listar vulnerável recebemos um warning de ataque xss.
+
+Cadastrando o <script>alert('Ataq. X S S')</script>, o php irá exibir esse valor diretamente na página, sem tratamento, interpretando e executando o javaScript, causando o alerta
+
+d) Agora, depois do cadastro do comando, quando listamos vulneravel a XSS somos direcionados a página home da ufu. Analisando o html de cadastro, podemos observar o comando em javascript que direciona a janela para o link fornecido.
+
+e) Analisando o conteúdo do arquivo txt, podemos ver que ambos, tanto o alert quanto o comando que nos direciona para outra página estão em formato de <script>, o que faz com que sejam executados quando rodado o html
