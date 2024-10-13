@@ -1,7 +1,7 @@
 <?php
 
 require "../conexaoMysql.php";
-require "produto.php";
+require "paciente.php";
 
 // resgata a ação a ser executada
 $acao = $_GET['acao'];
@@ -11,41 +11,32 @@ $pdo = mysqlConnect();
 
 switch ($acao) {
 
-  case "adicionarProduto":
+  case "adicionarPaciente":
     //--------------------------------------------------------------------------------------    
     $nome = $_POST["nome"] ?? "";
-    $marca = $_POST["marca"] ?? "";
-    $descricao = $_POST["descricao"] ?? "";
+    $sexo = $_POST["sexo"] ?? "";
+    $email = $_POST["email"] ?? "";
 
-    // gera o hash da senha
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    // Resgata os dados do paciente
+    $peso = $_POST["peso"] ?? "";
+    $altura = $_POST["altura"] ?? "";
+    $tipoSanguineo = $_POST["tipoSanguineo"] ?? "";
 
     try {
-      Produto::Create($pdo, $nome, $marca, $descricao);
-      header("location: produtos.html");
+      // Insere os dados nas tabelas correlacionadas, cliente e enderecoCliente, utilizando transação
+      Paciente::Create($pdo, $nome, $sexo, $email, $peso, $altura, $tipoSanguineo);
+      header("location: pacientes.html");
     } catch (Exception $e) {
       throw new Exception($e->getMessage());
     }
     break;
 
-
-  case "excluirProduto":
-    //--------------------------------------------------------------------------------------
-    $idProduto = $_GET["idProduto"] ?? "";
-    try {
-      Produto::Remove($pdo, $idProduto);
-      header("location: produtos.html");
-    } catch (Exception $e) {
-      throw new Exception($e->getMessage());
-    }
-    break;
-
-  case "listarProdutos":
+  case "listarPacientes":
     //--------------------------------------------------------------------------------------
     try {
-      $arrayProdutos = Produto::GetFirst30($pdo);
+      $arrayPacientes = Paciente::GetFirst30($pdo);
       header('Content-Type: application/json; charset=utf-8');
-      echo json_encode($arrayProdutos);
+      echo json_encode($arrayPacientes);
     } catch (Exception $e) {
       throw new Exception($e->getMessage());
     }
