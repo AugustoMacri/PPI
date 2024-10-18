@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <title>Desenvolvimento Web com Ajax</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+  <style>
+    body {
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h3>Preenchendo o endereço com Ajax</h3>
+  
+    <form class="row g-3">
+      <div>
+        <label for="cep" class="form-label">Informe o CEP no formato xxxxx-xxx (Ex. 38400-100, 38400-200)</label>
+        <input type="text" class="form-control" id="cep" name="cep">
+      </div>
+      <div>
+        <label for="rua" class="form-label">Rua:</label>
+        <input type="text" class="form-control" id="rua" name="rua">
+      </div>
+      <div>
+        <label for="bairro" class="form-label">Bairro:</label>
+        <input type="text" class="form-control" id="bairro" name="bairro">
+      </div>
+      <div>
+        <label for="cidade" class="form-label">Cidade:</label>
+        <input type="text" class="form-control" id="cidade" name="cidade">
+      </div>
+    </form>
+  
+  </div>
+
+  <script> //script javascript para ser analisado
+
+    //definicao da funcao buscaEndereco
+    function buscaEndereco(cep) {
+      if (cep.length != 9) //condicao para verificar se o cep tem 9 caracteres
+        return;
+
+      let xhr = new XMLHttpRequest(); //instanciando o objeto XMLHttpRequest
+      xhr.open("GET", "busca-endereco.php?cep=" + cep); //Definindo o metodo de requisicao GET, o arquivo a ser requisitado junto com o cep
+      xhr.responseType = 'json'; //Definindo o tipo de resposta como json
+
+      xhr.onload = function () { //onload garante que a funcao callback seja chamada automaticamente quando a resposta do servidor termina de ser carregada pelo navegador
+        if (xhr.status != 200 || xhr.response === null) { //Condicao para verificar se a resposta do servidor foi bem sucedida (200 OK) e se não é nula
+          console.log("A resposta não pode ser obtida ");
+          console.log(xhr.status); //Estatus da resposta
+          return;
+        }
+
+        const endereco = xhr.response; //atribui a resposta a const endereco
+        let form = document.querySelector("form"); //Seleciona o primeiro form do documento
+        form.rua.value = endereco.rua; //atribui o valor da rua ao campo rua do form
+        form.bairro.value = endereco.bairro; //atribui o valor do bairro ao campo bairro do form
+        form.cidade.value = endereco.cidade; //atribui o valor da cidade ao campo cidade do form
+      }
+
+      xhr.onerror = function () { //onerror chamado para permitir tratar os erros de rede que impeçam a finalização da requisição
+        console.error("Erro de rede - requisição não finalizada");
+      };
+
+      xhr.send(); //envia a requisicao HTTP para o servidor
+    }
+
+    const inputCep = document.querySelector("#cep"); //Seleciona o primeiro elemento do tipo input que tem o id cep
+    inputCep.onkeyup = () => buscaEndereco(inputCep.value); //Evento de pressiona tecla no input que chama a funcao buscaEndereco
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Ajax - onerror</title>
+  <style>
+    body {
+      font: 1.2rem Helvetica;
+      line-height: 1.5rem;
+      background-image: url("images/bg2.jpg");
+      background-size: cover;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      background-color: #fff;
+      border: 0.5px solid #ccc;
+      margin: 0;
+      padding: 2% 4%;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <label for="cep">Informe o CEP (38400-100 ou 38700-000)</label>
+    <input type="text" id="cep">
+    <span id="cidade"></span>
+  </main>
+
+  <script> //script javascript para ser analisado
+
+    //definicao da funcao buscaCidade
+    function buscaCidade(cep) {
+      if (cep.length != 9) //condicao para verificar se o cep tem 9 caracteres
+        return;
+
+      let xhr = new XMLHttpRequest(); //instanciando o objeto XMLHttpRequest
+      xhr.open("GET", "busca-cidade.php?cep=" + cep); //Definindo o metodo de requisicao GET, o arquivo a ser requisitado junto com o cep
+      xhr.onload = function () { //onload garante que a funcao callback seja chamada automaticamente quando a resposta do servidor termina de ser carregada pelo navegador
+        if (xhr.status == 200) //Condição para verificar se a resposta do servidor foi bem sucedida (200 OK)
+          document.getElementById("cidade").textContent = xhr.responseText; //Se a resposta for 200, o conteudo do elemento cidade vira o conteudo da resposta
+        else {
+          document.getElementById("cidade").textContent = ""; //Se a resposta não for 200, o conteudo do elemento cidade vira vazio
+          console.log(xhr.status, xhr.statusText, xhr.responseText); //Exibe o status da resposta, a mensagem de status e o conteudo da resposta
+        }
+      };
+
+      xhr.onerror = function () { //onerror chamado para permitir tratar os erros de rede que impeçam a finalização da requisição
+        console.log("Erro de rede");
+      };
+
+      xhr.send(); //Envia a requisicao HTTP para o servidor
+    }
+
+    const inputCep = document.querySelector("#cep"); //Seleciona o priemiro elemento do tipo input que tem o id cep
+    inputCep.onkeyup = () => buscaCidade(inputCep.value); //Evento de tecla pressionada no input que chama a funcao buscaCidade
+  </script>
+
+</body>
+
+</html>

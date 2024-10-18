@@ -1,0 +1,47 @@
+-> Com o Cep 38400-100
+i. Qual foi o código de status retornado?
+	O codigo de status retornado foi 200 (bem-sucedido)
+	
+ii. Qual o valor do cabeçalho Content-Type da resposta HTTP? Por quê?
+	O valor do Content-Type é text/html, porque indica o tipo de conteúdo que o servidor está retonando, nesse caso o text que tem "Uberlândia"
+	
+iii. Qual o valor recebido no corpo da resposta HTTP (aba Response)?
+	Foi devolvido Uberlândia.
+
+iv. Qual o valor do cabeçalho Server da resposta HTTP?
+	O valor do cabeçalho Server foi nginx.
+	
+v. A requisição HTTP possui o cabeçalho Content-Type? Por quê?
+	Não, a requisição não possui o cabeçalho Content-Type. Isso ocorre porque estamos com uma requisição GET, assim o Content-Type não e obrigatório porque não há envio de um corpo de dados.
+	
+	
+	
+-> Com o Cep 38400-500
+i. Qual foi o código de status retornado?
+	O codigo de status retornado foi 404 (recurso não encontrado)
+	
+ii. Qual o valor do cabeçalho Content-Type da resposta HTTP? Por quê?
+	O valor do Content-Type é text/html. O tex/html é usado para conteúdo textual que pode ser exibido.
+	
+iii. Qual o valor recebido no corpo da resposta HTTP (aba Response)?
+	Foi devolvido 38400-500 is not available.
+
+iv. Qual o valor do cabeçalho Server da resposta HTTP?
+	O valor do cabeçalho Server foi nginx.
+	
+v. A requisição HTTP possui o cabeçalho Content-Type? Por quê?
+	Não, a requisição não possui o cabeçalho Content-Type. Isso ocorre porque estamos com uma requisição GET, assim o Content-Type não e obrigatório porque não há envio de um corpo de dados.
+	
+	
+
+e) Simule um erro no script PHP removendo o fecha parênteses do primeiro if. Envie o script com o erro para o servidor e repita a busca usando o CEP 38400-100. Qual foi o código de status retornado? E o conteúdo do corpo da resposta HTTP?
+
+O código de status retornado foi 500, indicando Internal Server Error (indica que houve erro no servidor ao processar a requisição). Já observando a resposta HTTP, não recebemos nada, fica vazio, com content-length de 0.
+
+f) No infinityfree, acesse Accounts → Sua Conta → Control Panel → Alter PHP Config → Alter PHP Directives e altere a opção Display Errors para on. Repita o teste realizado no item anterior e observe o resultado. O que mudou? Qual foi o código de status retornado? O que foi retornado no corpo da resposta HTTP? Em qual situação essa configuração seria útil? Em qual situação ela jamais deveria ser utilizada?
+	Refazendo os testes do exercício anterior, recebemos uma mensagem de erro de syntax error e unexpected token diretamente no site.
+	Agora executando a busca pelo cep, o servidor retorna status de 200 e corpo da resposta com uma mensagem detalhada do erro, indicando parse error (erro de sintaxe).
+	Essa situação seri útil durante o desenvolvimento de aplicações, testadas ou em ambientes locais, porque assim é possível que o desenvolvedor veja os erros que estão sendo retornados.
+	Contudo, jamais deveria ser usada em ambientes de produção. Porque exibir erros diretamente ao usuário pode expor conteúdos sensíveis do site.
+	
+

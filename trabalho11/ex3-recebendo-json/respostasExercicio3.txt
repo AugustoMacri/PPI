@@ -1,0 +1,20 @@
+i. Qual foi o código de status retornado?
+	O código de status retornado após a consulta com o cpf 38400-100 foi (200 OK)
+	
+ii. Qual o valor do cabeçalho Content-Type da resposta HTTP? Por quê?
+	O valor do Content-Type é application/json. Isso ocorre, porque podemos analisar no busca-endereco.php que o retorno do endereco é dado em formato json por: 
+	header('Content-type: application/json');
+	echo json_encode($endereco);
+
+iii. Qual o valor recebido no corpo da resposta HTTP (aba Response)?
+	O valor recebido no corpo da resposta HTTP na aba response é: "{"rua":"Av Floriano","bairro":"Centro","cidade":"Uberl\u00e2ndia"}"
+
+
+iv. Qual o valor do cabeçalho Server da resposta HTTP?
+	O valor do cabeçalho server é nginx.
+
+	
+v. A requisição HTTP possui o cabeçalho Content-Type? Por quê?
+	A requisição não possui cabeçalho Content-Type porque estamos novamente realizando uma requisição com GET. Sendo cabeçalho mais comum com uso de POST ou PUT
+	
+	

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Teste AJAX Simples</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.5rem;
+      background-image: url("images/bg2.jpg");
+      background-size: cover;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      background-color: #fff;
+      border: 0.5px solid #ccc;
+      margin: 0;
+      padding: 2% 4%;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+    <h1>Faculdade de Computação da UFU</h1>
+    <p>A Faculdade de Computação (FACOM) da Universidade...</p>
+    <p>No início dos anos 2000 foi criado na Faculdade...</p>
+    <button>Carregar mais conteúdo com Ajax</button>
+  </main>
+
+
+  <script> //Script javascript para ser analisado
+
+    //Definicao de funcao para carregar o conteudo extra da pagina (Cursos de Graduacao e Pós)
+    function loadExtraContent() {
+      let xhr = new XMLHttpRequest(); //Insanciacao do objeto XMLHttpRequest (usada para fazer requisicoes no server)
+      xhr.open("GET", "conteudoAdicional.html", true); //Definindo o metodo de requisicao (GET), o arquivo a ser requisitado e se a requisicao sera assincrona (true)
+      xhr.onload = function () { //Essa propriedade onload permite indicar uma funcao de callback que sera chamada automaticamente quando a resposta enviada pelo servidor terminar de ser carregada pelo naveador. É a função que utilizara os dados requisitados.
+        const main = document.querySelector("main"); //Seleciona o primeiro elemento do tipo main da pagina
+        main.insertAdjacentHTML("beforeend", xhr.responseText); //A propriedade responseText é utilizada para acessar a resposta textual enviada pelo servidor. A funcao insertAdjacentHTML insere o conteudo requisitado no final do elemento main.
+      };
+      xhr.send(); //Envia a requisicao HTTP para o servidor
+    }
+    const button = document.querySelector("button"); //Seleciona o primeiro botao que aparece no documento
+    button.addEventListener("click", loadExtraContent); //Adiciona um evento de clique ao botao, que chama a funcao loadExtraContent
+  </script>
+
+</body>
+
+</html>

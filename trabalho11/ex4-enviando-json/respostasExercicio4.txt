@@ -1,0 +1,19 @@
+b) Quais são as principais diferenças desse exemplo comparado ao ex3-recebendo-json1?
+	As principais diferenças entre este exemplo comparado ao ex3-recebendo-json1 são:
+	- Diferenças no tamanho de content-lenght
+	- Antes o content-type era text/html, mas neste exemplo de agora é application/json, ou seja, agora a resposta é enviada em formato json.
+	- No exemplo atual possui a presença do Origin no request Header
+	- Por fim, também no Request header, há o Content-Type com valor application/json, que indica que o corpo de requisição está sendo enviado em formato json.
+
+c) Abra novamente o exemplo no navegador, insira o CEP 38400-100 e monitore a requisição
+Ajax utilizando o ambiente de desenvolvimento. Observe os cabeçalhos da requisição HTTP
+(Request Headers). Qual o valor dos cabeçalhos Content-Type e Content-Length? O que é 
+apresentado na aba Payload? O que isso significa? As respostas das perguntas devem ser
+disponibilizadas em um arquivo de nome respostasExercicio4.txt na pasta do exemplo
+	- Content-Type tem valor de application/json
+	- Content-lenght tem valor de 63
+	- Na aba payload é apresentado em formato json, apresentando cep, email e apikey. Esse json
+	devolvido significa que a payload contem os dados que o cliente está enviando para o servidor,
+	e cada campo contem uma informação, senod o "cep": "38400-100", "email": "fulano@mail.com" e "apikey": "123456"
+
+
