@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Encadeando requisições assíncronas</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.5rem;
+      background-color: #ddd;
+      color: #555;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      margin: 0;
+      padding: 2% 4%;
+      background-color: #eee;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-size: 5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h2>Temperatura Local: <span id="temp">...</span></h2>
+    <h2>Velocidade do Vento: <span id="wind">...</span></h2>
+  </main>
+  <script>
+
+    // OBS: A função não trata todos os erros
+    function buscaClimaLocal() {
+      fetch('https://ipapi.co/json/') //requisicao assincrona para obter as informações de localização com base no IP
+        .then(response => response.json()) //converte a resposta para JSON
+        .then(data => fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data.latitude}&longitude=${data.longitude}&current_weather=true`)) // Usa dos dados da resposta (latitude e longitude) para fazer outra requisição
+        .then(response => response.json()) //converte a resposta para JSON de novo
+        .then(data => { //Atualiza o HTML para aparecer as informações de temperatura e vento
+          document.getElementById("temp").textContent = data.current_weather.temperature + '°';
+          document.getElementById("wind").textContent = data.current_weather.windspeed + ' km/h';
+        })
+        .catch(error => console.log(error)); //capturar erro caso ocorra
+    }
+
+    window.onload = function () { //Executa a função ao carregar a página
+      buscaClimaLocal();
+    }
+  </script>
+
+</body>
+
+</html>
