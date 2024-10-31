@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Wheather Stacl</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Previsão do Tempo</h1>
+
+    <h3>
+        O objetivo dessa aplicação utilizando a API weatherstack é de, a partir de um nome de uma cidade
+        fornecido, exibir a Previsao do Tempo da cidade. Sendo escolhido a temperatura, sensação térmica, umidade e
+        raios UV, mesmo sendo possivel exibir muitas informações optou-se apenas por essas por serem mais importantes.
+    </h3>
+
+    <h3>
+        Para utilizar apenas digite o nome da cidade e clique em buscar, logo em seguida será exibido as informações.
+    </h3>
+
+    <p>Digite a cidade que gostaria de averiguar o clima:</p>
+
+    <form id="clima">
+        <label for="cidade">Nome da Cidade:</label>
+        <input type="text" id="cidade" placeholder="Ex: Uberlândia">
+        <button type="button" onclick="buscarClima()">Buscar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        async function buscarClima() { // Função para buscar o clima
+
+            // Chave da api
+            const apiKey = '8ddf1f83868a4756c4583879be54c072';
+
+            //url
+            const url = 'http://api.weatherstack.com/current';
+
+            // Pegando o nome da cidade
+            const cidade = document.getElementById('cidade').value;
+
+            if (!cidade || cidade === '') { // Condiçãozinha para verificar se o campo foi preenchido
+                alert('Digite o nome da cidade');
+                return;
+            }
+
+            // URL completo com a chave e cidade digitada 
+            const urlCompleta = `${url}?access_key=${apiKey}&query=${cidade}`;
+
+            try {
+                // Fazendo a requisição AJAX
+                const response = await fetch(urlCompleta); // fetch com a url completa
+                const data = await response.json(); // Pegando o json da resposta
+
+                // Verificação para se a cidade foi encontrada
+
+                if (data.error) {
+                    alert('Cidade não encontrada');
+                    return;
+                } else {
+                    const clima = data.current; // Pegando o current (que contém as informações do clima)
+                    const location = data.location; // Pegando o location
+
+                    // Criando o HTML para exibir as informações
+                    let resultado = `<h2>Previsão do Tempo para ${location.name}, ${location.region}, ${location.country}</h2>`;
+                    resultado += `<p>Temperatura: ${clima.temperature}°C</p>`; //Pegando a temp
+                    resultado += '<p>Sensação Térmica: ' + clima.feelslike + '°C</p>'; // PEGAR USANDO FEELSLIKE    
+                    resultado += `<p>Umidade: ${clima.humidity}%</p>`; //Pegando a Umidade
+                    resultado += '<p>Raios UV: ' + clima.uv_index + '</p>'; // PEGAR USANDO UV_INDEX
+
+                    document.getElementById('resultado').innerHTML = resultado; // Exibindo o resultado na tela
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

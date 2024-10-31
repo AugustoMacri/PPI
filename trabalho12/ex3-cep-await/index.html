@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
   <title>Desenvolvimento Web com Ajax</title>
@@ -45,10 +45,45 @@
 
   </div>
 
+
   <script>
+
+    async function buscaEndereco(cep) {
+
+      if (cep.length != 9) return; //verifica tamanho do cep
+
+      let form = document.querySelector("form"); //seleciona o formulário
+
+      fetch("busca-endereco-bd.php?cep=" + cep)
+        .then(response => {
+
+          if (!response.ok) { //se nao foi bem sucedida
+            throw new Error(response.status);
+          }
+          return response.json(); //converte a resposta para JSON 
+        })
+
+        .then(endereco => {
+          form.rua.value = endereco.logradouro;
+          form.bairro.value = endereco.bairro;
+          form.cidade.value = endereco.cidade;
+        })
+
+        .catch(e => {
+          console.error(e);
+          return;
+        })
+
+    }
+
+
+    /*  Antes das Alterações
+
+    // (RESPOSTA questao 3 b): o response.status foi deolvido como 200 e o response.body contém apenas ReadaableStream, ou seja, os dados ainda não foram lidos)
 
     async function buscaEndereco(cep) { //declaracao de funcao assíncrona para buscar endereco
       if (cep.length != 9) return; //verifica tamanho do cep
+
 
       try {
         const response = await fetch("busca-endereco.php?cep=" + cep); //faz a requisição assíncrona para o servidor
@@ -56,7 +91,7 @@
           errorMessage = await response.text(); //captura a mensagem de erro
           throw new Error(response.statusText + errorMessage);
         }
-        const endereco = await response.json(); //converte a resposta para JSON (RESPOSTA: o response.status foi deolvido como 200 e o response.body não contém apenas ReadaableStream, ou seja, os dados ainda não foram lidos)
+        const endereco = await response.json(); //converte a resposta para JSON 
         const form = document.querySelector("form"); //seleciona o formulário
         //atualiza os campos do formulário com os dados do endereço
         form.rua.value = endereco.rua;
@@ -68,11 +103,14 @@
         return;
       }
     }
+    */
+
     //executa a função ao carregar a página
     window.onload = function () {
       const inputCep = document.querySelector("#cep");
       inputCep.onkeyup = () => buscaEndereco(inputCep.value);
     }
+
 
   </script>
 

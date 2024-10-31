@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
   <title>Rolagem Infinita</title>
@@ -70,39 +70,39 @@
 
   <script>
 
-    function renderProducts(newProducts) {
-      const prodsSection = document.getElementById("products");
+    function renderProducts(newProducts) { // declaracao de função para renderizar os produtos
+      const prodsSection = document.getElementById("products"); //seleciona a seção de produtos
       // veja observações sobre o elemento <template> no código HTML
-      const divItemTemplate = document.getElementById("item-template").content.firstElementChild;
+      const divItemTemplate = document.getElementById("item-template").content.firstElementChild; //selecao de template de item
       for (let product of newProducts) {
-        const newItem = divItemTemplate.cloneNode(true);
-        newItem.querySelector(".item-image").src = product.imagePath;
-        newItem.querySelector(".item-name").textContent = product.name;
-        newItem.querySelector(".item-price").textContent = product.price;
-        prodsSection.appendChild(newItem);
+        const newItem = divItemTemplate.cloneNode(true); //clona o template de item
+        newItem.querySelector(".item-image").src = product.imagePath; // faz atualizacao da img do item
+        newItem.querySelector(".item-name").textContent = product.name; // faz atualizacao do nome do item
+        newItem.querySelector(".item-price").textContent = product.price; // faz atualizacao do preco do item
+        prodsSection.appendChild(newItem); // inserindo o novo item na arvode DOM com appendChild
       };
     }
 
-    async function loadProducts() {
+    async function loadProducts() { //declaracao de função assíncrona para carregar os produtos
       try {
-        let response = await fetch("more-products.php");
-        if (!response.ok) throw new Error(response.statusText);
-        var products = await response.json();
+        let response = await fetch("more-products.php"); //requisicao assincrona
+        if (!response.ok) throw new Error(response.statusText); // condicao para se nao for bem sucedida
+        var products = await response.json(); // convertendo a resposta para JSON
       }
       catch (e) {
         console.error(e);
         return;
       }
-      renderProducts(products);
+      renderProducts(products); // faz a renderizacao dos produtos
     }
 
-    window.onload = function () {
+    window.onload = function () { // executa ao carrega a pág
       loadProducts();
     }
 
-    window.onscroll = function () {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        loadProducts();
+    window.onscroll = function () { // executa ao rolar a pág
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) { // condicao para verificar se a rolagem chegou ao final da pág
+        loadProducts(); // chamada da funcao 
       }
     };
 

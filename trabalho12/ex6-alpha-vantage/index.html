@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <title>Cotação das Ações</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Faça a consulta da Cotação das Ações:</h1>
+
+  <!--Campo de formulario para o user fazer 3 requisicoes simultaneas-->
+  <form id="form-acao">
+    <label>Código da Ação 1: <input type="text" id="acao1"></label><br>
+    <label>Código da Ação 2: <input type="text" id="acao2"></label><br>
+    <label>Código da Ação 3: <input type="text" id="acao3"></label><br>
+    <button type="button" onclick="buscarCotacoes()">Buscar Cotações</button>
+  </form>
+
+  <div id="resultado"></div>
+
+
+  <script>
+    async function buscarCotacoes() {
+
+      // Chave da api
+      const apiKey = 'H3NMNYF716VYYOML';
+
+      //url
+      const url = 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=';
+
+      //obtendo os codigos a partir dos inputs
+      const acao1 = document.getElementById('acao1').value;
+      const acao2 = document.getElementById('acao2').value;
+      const acao3 = document.getElementById('acao3').value;
+
+      //array de url para cada diferente acao
+      const urls = [url + acao1 + '&apikey=' + apiKey, url + acao2 + '&apikey=' + apiKey, url + acao3 + '&apikey=' + apiKey];
+
+      try {
+        // Realizando as requisicoes
+        const responses = await Promise.all(urls.map(url => fetch(url))); // Promise.all() retorna um array de promises
+        const data = await Promise.all(responses.map(response => response.json())); // aqui estamos pegando o json de cada resposta
+
+
+        // Processamento dos dados e exibição deles na tela (HTML)
+        let resultado = '<h2>Cotações das Ações colocadas:</h2>';
+        data.forEach((acao, index) => {
+          if (acao['Global Quote']) { // Verifica se a ação é válida
+            const symbol = acao['Global Quote']['01. symbol']; // Pegando o símbolo da ação
+            const price = acao['Global Quote']['05. price']; //Pegando preço 
+            resultado += `<p>Ação ${index + 1} (${symbol}): R$ ${price}</p>`; // Exibindo o resultado
+          } else {
+            resultado += `<p>Ação ${index + 1}: Código inválido</p>`; // Exibindo se der errado
+          }
+
+        });
+
+        document.getElementById('resultado').innerHTML = resultado; // Exibindo o resultado na tela
+      } catch (error) {
+        console.error(error);
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>

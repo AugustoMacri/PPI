@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -43,15 +43,16 @@
 
     async function buscaClimaLocal() {
 
+
       try {
         // identifica a cidade
         const response1 = await fetch('https://ipapi.co/json/');
-        if (! response1.ok) throw new Error(response1.statusText);
+        if (!response1.ok) throw new Error(response1.statusText);
         local = await response1.json();
 
         // busca informações do clima local passando a latitude e a longitude como parâmetro
         const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${local.latitude}&longitude=${local.longitude}&current_weather=true`);
-        if (! response2.ok) throw new Error(response2.statusText);
+        if (!response2.ok) throw new Error(response2.statusText);
         clima = await response2.json();
 
         // apresenta as informações do clima

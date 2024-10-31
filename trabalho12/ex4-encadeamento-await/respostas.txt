@@ -1,0 +1,42 @@
+Os valores da propriedade latitude são -19.0243 e da propriedade longitude são -48.3428.
+
+Explorando as propriedades da variavel clima, encontramos as seguintes propriedades com valores:
+    - interval: 900;
+    - is_day: 0;
+    - temperature: 22.3;
+    - time: "2028-10-29T23:30"
+    - weathercode: 80
+    - winddirection: 114;
+    - windspeed: 4.3;
+Também encontramos informações das unidades utilizadas
+
+
+String Json devolvida:
+
+{
+  "latitude": -19,
+  "longitude": -48.375,
+  "generationtime_ms": 0.06699562072753906,
+  "utc_offset_seconds": 0,
+  "timezone": "GMT",
+  "timezone_abbreviation": "GMT",
+  "elevation": 803,
+  "current_weather_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature": "°C",
+    "windspeed": "km/h",
+    "winddirection": "°",
+    "is_day": "",
+    "weathercode": "wmo code"
+  },
+  "current_weather": {
+    "time": "2024-10-29T23:45",
+    "interval": 900,
+    "temperature": 22.3,
+    "windspeed": 4.4,
+    "winddirection": 99,
+    "is_day": 0,
+    "weathercode": 80
+  }
+}
